@@ -1,0 +1,23 @@
+@relation analise-credito
+
+@attribute renda NUMERIC
+@attribute idade NUMERIC
+@attribute estado_civil {solteiro, casado, divorciado, viuvo}
+@attribute dependentes NUMERIC
+@attribute resultado {reprovado, renda-baixa, 100-500, 500-1000, 1000-1500, 1500-2000, 2000-acima}
+
+@Data
+2500,28,solteiro,0,500-1000
+1000,17,solteiro,0,100-500
+8000,68,casado,3,1500-2000
+5000,61,casado,3,1000-1500
+2000,56,divorciado,2,reprovado
+2000,45,divorciado,1,reprovado
+8000,30,casado,2,2000-acima
+10000,33,casado,1,2000-acima
+400,19,solteiro,1,renda-baixa
+1500,63,viuvo,3,reprovado
+2500,28,solteiro,2,100-500
+500,16,solteiro,0,renda-baixa
+8000,30,casado,5,1000-1500
+10000,33,viuvo,0,2000-acima

@@ -1,0 +1,6 @@
+# Arquivos Gerais
+.DS_Store
+/.metadata/
+/RemoteSystemsTempFiles/
+/.recommenders/
+.angulardoc.json

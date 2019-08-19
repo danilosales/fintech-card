@@ -1,0 +1,34 @@
+version: '3.5'
+
+services: 
+  analise-engine:
+    build: analise-engine
+    ports: 
+      - "9080:9080"
+    networks:
+      - fintech
+  fintech-backend:
+    build: fintech-server
+    depends_on:
+      - analise-engine
+    ports:
+      - "8080:8080"
+    networks:
+      - fintech
+    links:
+      - analise-engine:analise-engine
+
+  fintech-front:
+    build: fintech-front
+    depends_on:
+        - fintech-backend
+    ports:
+        - 80:80
+    networks:
+      - fintech
+    links:
+      - fintech-backend:fintech-backend    
+
+networks:
+  fintech:
+    driver: bridge 

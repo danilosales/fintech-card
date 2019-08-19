@@ -1,0 +1,45 @@
+<main>
+  <section>
+      <h2 class="ui-h2-style">Consulta Solicitação</h2>
+      <br />
+      <form [formGroup]="propostaForm" (ngSubmit)="onSubmitForm(propostaForm.value)">
+          <label for="float-input" class="ui-label-style">CPF:</label>
+          <br />
+          <span class="ui-float-label">
+              <input pInputText formControlName="cpf" type="text" size="30" maxlength="11" pKeyFilter="num"><span
+                  class="required-field-star">*</span>
+              &nbsp;
+              <p-message severity="error" text="O campo CPF é obrigatório"
+                  *ngIf="!propostaForm.controls['cpf'].valid && propostaForm.controls['cpf'].dirty">
+              </p-message>
+              &nbsp;
+              <button pButton styleClass="ui-button-submit"  type="submit" label="Pesquisar"
+              [disabled]="!propostaForm.valid"></button>
+
+          </span>
+      </form>
+      <br />
+      <br />
+      <div class="ui-g-12 ui-md-8 car-details" *ngIf="propostaRetornada && propostaRetornada.cpf">
+        <div class="ui-g">
+            <div class="ui-g-2 ui-sm-6">CPF: </div>
+            <div class="ui-g-10 ui-sm-6"><b>{{propostaRetornada.cpf}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Nome: </div>
+            <div class="ui-g-10 ui-sm-6"><b>{{propostaRetornada.nome}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Status: </div>
+            <div class="ui-g-10 ui-sm-6"><b>{{propostaRetornada.status}}</b></div>
+
+            <div class="ui-g-2 ui-sm-6">Observação: </div>
+            <div class="ui-g-10 ui-sm-6"><b>{{propostaRetornada.observacao}}</b></div>
+        </div>
+      </div>
+      <div class="ui-g-12 ui-md-8 car-details" *ngIf="display">
+        <label>Não foi encontrada proposta para o CPF informado</label>
+      </div>
+      <br />
+  </section>
+</main>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet" />

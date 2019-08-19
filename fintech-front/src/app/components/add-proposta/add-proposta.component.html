@@ -1,0 +1,103 @@
+<main>
+    <section >
+      <h2 class="ui-h2-style">Nova Proposta</h2>
+      <br />
+      <form [formGroup]="propostaForm" (ngSubmit)="onSubmitForm(propostaForm.value)">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="nome" class="ui-label-style">Nome</label>
+              <input pInputText formControlName="nome" class="form-control" type="text" size="40" maxlength="256">
+              <span class="ui-float-label">
+                &nbsp;
+                <p-message severity="error" text="O campo nome é obrigatório"
+                    *ngIf="!propostaForm.controls['nome'].valid && propostaForm.controls['nome'].dirty"></p-message>
+              </span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="cpf" class="ui-label-style">CPF</label>
+              <input pInputText formControlName="cpf" class="form-control" type="text" size="20" maxlength="11" pKeyFilter="num">
+              <span class="ui-float-label">
+                &nbsp;
+                <p-message severity="error" text="O campo CPF é obrigatório"
+                    *ngIf="!propostaForm.controls['cpf'].valid && propostaForm.controls['cpf'].dirty"></p-message>
+              </span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="idade" class="ui-label-style">Idade</label>
+              <input pInputText formControlName="idade" class="form-control" type="text" size="10" maxlength="3" pKeyFilter="num">
+              <span class="ui-float-label">
+                &nbsp;
+                <p-message severity="error" text="O campo idade é obrigatório"
+                    *ngIf="!propostaForm.controls['idade'].valid && propostaForm.controls['idade'].dirty"></p-message>
+              </span>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="sexoTipos" class="ui-label-style">Sexo</label>
+              <p-dropdown [options]="sexoTipos" [autoWidth]="true" styleClass="form-control dropdown-ajust" formControlName="sexo" required></p-dropdown>
+              <span class="ui-float-label">
+                  &nbsp;
+                  <p-message severity="error" text="O campo Sexo é obrigatório" *ngIf="!propostaForm.controls['sexo'].valid && propostaForm.controls['sexo'].dirty"></p-message>
+              </span>
+            </div>
+            <div class="form-group col-md-4"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="estado" class="ui-label-style">Estado</label>
+                <p-dropdown [options]="estadosTipos" [autoWidth]="true" styleClass="form-control dropdown-ajust" formControlName="estado" required></p-dropdown>
+                <span class="ui-float-label">
+                    &nbsp;
+                    <p-message severity="error" text="O campo Estado é obrigatório" *ngIf="!propostaForm.controls['estado'].valid && propostaForm.controls['estado'].dirty"></p-message>
+                </span>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="estadoCivil" class="ui-label-style">Estado Civil</label>
+              <p-dropdown [options]="estadoCivilTipos" [autoWidth]="true" styleClass="form-control dropdown-ajust" formControlName="estadoCivil" required></p-dropdown>
+              <span class="ui-float-label">
+                  &nbsp;
+                  <p-message severity="error" text="O campo Estado Civil é obrigatório" *ngIf="!propostaForm.controls['estadoCivil'].valid && propostaForm.controls['estadoCivil'].dirty"></p-message>
+              </span>
+            </div>
+            <div class="form-group col-md-4"></div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="dependentes" class="ui-label-style">Dependentes</label>
+                <input pInputText formControlName="dependentes" class="form-control" type="text" size="15" maxlength="10" pKeyFilter="num">
+                <span class="ui-float-label">
+                  &nbsp;
+                  <p-message severity="error" text="O campo Dependentes é obrigatório"
+                      *ngIf="!propostaForm.controls['dependentes'].valid && propostaForm.controls['dependentes'].dirty"></p-message>
+                </span>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="renda" class="ui-label-style">Renda</label>
+                <input pInputText formControlName="renda" type="text" class="form-control" size="15" maxlength="10" pKeyFilter="money">
+                <span class="ui-float-label">
+                  &nbsp;
+                  <p-message severity="error" text="O campo Renda é obrigatório"
+                      *ngIf="!propostaForm.controls['renda'].valid && propostaForm.controls['renda'].dirty"></p-message>
+                </span>
+              </div>
+          </div>
+          <br />
+          <span class="ui-float-label">
+              <button pButton styleClass="ui-button-submit" type="submit" label="Enviar Proposta" [disabled]="!propostaForm.valid"></button>&nbsp;
+            </span>
+            <br /><br />
+            <p-dialog header="Resultado Solicitação" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '550px', minWidth: '200px'}" [minY]="70"  [baseZIndex]="10000">
+              <div *ngIf="proposta.status">Status da proposta: {{proposta.status}}</div>
+              <div *ngIf="!displayMotivo">Limite: {{proposta.observacao}}</div>
+              <div *ngIf="displayMotivo">Motivo: {{proposta.observacao}}</div>
+              <br/>
+              <p-footer>
+                  <button type="button" pButton icon="pi pi-check" (click)="display=false;iniciarFormulario();" label="Solicitar Nova Análise"></button>
+              </p-footer>
+            </p-dialog>
+      </form>
+    </section>
+  </main>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet" />

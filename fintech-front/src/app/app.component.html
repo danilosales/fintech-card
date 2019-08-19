@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+        <a routerLink="search-proposta" class="nav-link" routerLinkActive="active">Consultar Proposta</a>
+    </li>
+    <li class="nav-item">
+        <a routerLink="add-proposta" class="nav-link" routerLinkActive="active">Nova proposta</a>
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>
+  <div class="card">
+    <div class="card-body">
+  <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <span>Todos os direitos reservados 2019 @Fintech</span>
+  </div>
+</footer>
