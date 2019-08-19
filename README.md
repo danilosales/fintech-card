@@ -74,7 +74,7 @@ Endereços disponíveis:
 
 * A comunicação entre os microservices tem uma melhor performance se utilizado através de um servidor JMS ou de Streams, infelizmente não houve tempo hábil para se implantar o kafka na solução apresentada.
 
-* Em relação ao projeto analise-engine, o correto é termos um outro projeto que seja responsavel somente em gerar o modelo para ser usado pelo weka, visto que a quantidade de dados para avaliação pode tornar o processamento lento de novas analises. 
+* Em relação ao projeto analise-engine, o correto é termos um outro projeto que seja responsavel somente em gerar o modelo para ser usado pelo weka, visto que a quantidade de dados para avaliação pode tornar o processamento lento de novas analises, pois dependendo do tamanho da matriz ele pode levar um certo tempo até processar toda a matriz de probabilidade. 
 
 * Utilizar um service discovery e aplicar autenticação aos serviços.
 
