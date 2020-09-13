@@ -72,16 +72,6 @@ Endereços disponíveis:
 
 * A quantidade de dados fornecidos não é suficiente para garantir a precisão do algoritmo com outros dados, como não havia descrito regras de negócios claras sobre a aprovação não foi possível gerar outra massa de testes válida.
 
-* A comunicação entre os microservices tem uma melhor performance se utilizado através de um servidor JMS ou de Streams, infelizmente não houve tempo hábil para se implantar o kafka na solução apresentada.
-
-* Em relação ao projeto analise-engine, o correto é termos um outro projeto que seja responsavel somente em gerar o modelo para ser usado pelo weka, visto que a quantidade de dados para avaliação pode tornar o processamento lento de novas analises, pois dependendo do tamanho da matriz ele pode levar um certo tempo até processar toda a matriz de probabilidade. 
-
-* Utilizar um service discovery e aplicar autenticação aos serviços.
+* Em relação ao projeto analise-engine, o correto é termos um outro projeto que seja responsavel somente em gerar o modelo para ser usado pelo weka, visto que a quantidade de dados para avaliação pode tornar o processamento lento de novas analises, pois dependendo do tamanho da matriz ele pode levar um certo tempo até processar toda a matriz de probabilidade.
 
 * Em casos que o serviço de analise esteja offline, foi criado um novo status "Em analise" para que posteriormente seja processado, para isto o kafka iria auxiliar com os que não foram processados, para que quando o serviço estivesse online fosse processado.
-
-* Infelizmente não foi possível implementar a alteração de uma proposta já existente para revalidação do sistema devido ao prazo.
-
-* Evitei o uso do nome da empresa, pois não sabia se poderia faze referência, por via das dúvidas resolvi evitar e dei o nome de "Fintech Card".
-
-* Só foram criados testes para o projeto do analise-engine, não deu tempo de criar para os demais projetos.
